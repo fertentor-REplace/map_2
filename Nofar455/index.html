@@ -43,7 +43,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[30.590950280624682,34.24004203238299],[32.53985914218603,37.87120100746473]]);
+        }).fitBounds([[30.590950280624682,34.41975249044668],[32.539859142185975,37.69149054940099]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -125,7 +125,6 @@
                                               img_bounds_EC96topo_dem_slope_2,
                                               {pane: 'pane_EC96topo_dem_slope_2'});
         bounds_group.addLayer(layer_EC96topo_dem_slope_2);
-        map.addLayer(layer_EC96topo_dem_slope_2);
         function pop_EC55environmental_constraints_ffh_and_conservation_tama_35_view_complex_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -179,7 +178,6 @@
             style: style_EC55environmental_constraints_ffh_and_conservation_tama_35_view_complex_3_0,
         });
         bounds_group.addLayer(layer_EC55environmental_constraints_ffh_and_conservation_tama_35_view_complex_3);
-        map.addLayer(layer_EC55environmental_constraints_ffh_and_conservation_tama_35_view_complex_3);
         function pop_EC115setbacks_and_land_use_anthropogenic_land_use_xplan_land_use_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -275,7 +273,6 @@
             style: style_EC115setbacks_and_land_use_anthropogenic_land_use_xplan_land_use_4_0,
         });
         bounds_group.addLayer(layer_EC115setbacks_and_land_use_anthropogenic_land_use_xplan_land_use_4);
-        map.addLayer(layer_EC115setbacks_and_land_use_anthropogenic_land_use_xplan_land_use_4);
         function pop_EC72base_layers_water_bodies_tama_1_stream_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -429,7 +426,6 @@
             style: style_EC72base_layers_water_bodies_tama_1_stream_5_0,
         });
         bounds_group.addLayer(layer_EC72base_layers_water_bodies_tama_1_stream_5);
-        map.addLayer(layer_EC72base_layers_water_bodies_tama_1_stream_5);
         function pop_EC71base_layers_water_bodies_tama_1_stream_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -583,7 +579,6 @@
             style: style_EC71base_layers_water_bodies_tama_1_stream_6_0,
         });
         bounds_group.addLayer(layer_EC71base_layers_water_bodies_tama_1_stream_6);
-        map.addLayer(layer_EC71base_layers_water_bodies_tama_1_stream_6);
         function pop_ParcelsClickformoreinformation_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -650,6 +645,19 @@
                 interactive: true,
             }
                     break;
+                case 'EXCLUDED: no rule values':
+                    return {
+                pane: 'pane_ParcelsClickformoreinformation_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_ParcelsClickformoreinformation_7');
@@ -667,7 +675,7 @@
         bounds_group.addLayer(layer_ParcelsClickformoreinformation_7);
         map.addLayer(layer_ParcelsClickformoreinformation_7);
         var overlaysTree = [
-            {label: 'Parcels (Click for more information)<br /><table><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_7_ELIGIBLE0.png" /></td><td>ELIGIBLE</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_7_EXCLUDEDECviolation1.png" /></td><td>EXCLUDED: EC violation</td></tr></table>', layer: layer_ParcelsClickformoreinformation_7},
+            {label: 'Parcels (Click for more information)<br /><table><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_7_ELIGIBLE0.png" /></td><td>ELIGIBLE</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_7_EXCLUDEDECviolation1.png" /></td><td>EXCLUDED: EC violation</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_7_Lessthan2000m22.png" /></td><td>Less than 2000 m2.</td></tr></table>', layer: layer_ParcelsClickformoreinformation_7},
         {label: '<b>Layer Rule Set</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/EC71base_layers_water_bodies_tama_1_stream_6.png" /> EC71 base_layers_water_bodies_tama_1_stream', layer: layer_EC71base_layers_water_bodies_tama_1_stream_6},
             {label: '<img src="legend/EC72base_layers_water_bodies_tama_1_stream_5.png" /> EC72 base_layers_water_bodies_tama_1_stream', layer: layer_EC72base_layers_water_bodies_tama_1_stream_5},
