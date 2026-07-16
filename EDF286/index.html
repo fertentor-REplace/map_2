@@ -45,14 +45,15 @@
         <script src="data/EC62environmental_constraints_protected_parks_reserves_and_parks_national_outline_plans_10.js"></script>
         <script src="data/EC63environmental_constraints_protected_parks_tama_1_nature_reserve_park_11.js"></script>
         <script src="data/EC100base_layers_national_and_regional_plans_tamam_south_land_use_designations_12.js"></script>
-        <script src="data/EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13.js"></script>
-        <script src="data/EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14.js"></script>
-        <script src="data/EC109base_layers_infrastructure_road_compilation_roads_15.js"></script>
-        <script src="data/ParcelsClickformoreinformation_16.js"></script>
+        <script src="data/EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13.js"></script>
+        <script src="data/EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14.js"></script>
+        <script src="data/EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15.js"></script>
+        <script src="data/EC109base_layers_infrastructure_road_compilation_roads_16.js"></script>
+        <script src="data/ParcelsClickformoreinformation_17.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[31.633884226285932,34.57848243228025],[33.10297840032705,37.06630854542817]]);
+        }).fitBounds([[31.633884226285932,34.500578226478396],[33.102978400327096,37.144212751230064]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1099,7 +1100,84 @@
             style: style_EC100base_layers_national_and_regional_plans_tamam_south_land_use_designations_12_0,
         });
         bounds_group.addLayer(layer_EC100base_layers_national_and_regional_plans_tamam_south_land_use_designations_12);
-        function pop_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13(feature, layer) {
+        function pop_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PLAN_NAME'] !== null ? autolinker.link(String(feature.properties['PLAN_NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOTES'] !== null ? autolinker.link(String(feature.properties['NOTES']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TYPE_NAME'] !== null ? autolinker.link(String(feature.properties['TYPE_NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Scale'] !== null ? autolinker.link(String(feature.properties['Scale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['YEUD_COMP'] !== null ? autolinker.link(String(feature.properties['YEUD_COMP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_sqm'] !== null ? autolinker.link(String(feature.properties['AREA_sqm']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_dunam'] !== null ? autolinker.link(String(feature.properties['AREA_dunam']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ET_ID'] !== null ? autolinker.link(String(feature.properties['ET_ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(String(feature.properties['Shape_Length']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(String(feature.properties['Shape_Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13_0() {
+            return {
+                pane: 'pane_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13');
+        map.getPane('pane_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13').style.zIndex = 413;
+        map.getPane('pane_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13').style['mix-blend-mode'] = 'normal';
+        var layer_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13 = new L.geoJson(json_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13',
+            layerName: 'layer_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13',
+            pane: 'pane_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13',
+            onEachFeature: pop_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13,
+            style: style_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13_0,
+        });
+        bounds_group.addLayer(layer_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13);
+        function pop_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1178,9 +1256,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13_0() {
+        function style_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14_0() {
             return {
-                pane: 'pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13',
+                pane: 'pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1193,20 +1271,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13');
-        map.getPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13').style.zIndex = 413;
-        map.getPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13').style['mix-blend-mode'] = 'normal';
-        var layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13 = new L.geoJson(json_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13, {
+        map.createPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14');
+        map.getPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14').style.zIndex = 414;
+        map.getPane('pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14').style['mix-blend-mode'] = 'normal';
+        var layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14 = new L.geoJson(json_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13',
-            layerName: 'layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13',
-            pane: 'pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13',
-            onEachFeature: pop_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13,
-            style: style_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13_0,
+            dataVar: 'json_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14',
+            layerName: 'layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14',
+            pane: 'pane_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14',
+            onEachFeature: pop_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14,
+            style: style_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14_0,
         });
-        bounds_group.addLayer(layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13);
-        function pop_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14(feature, layer) {
+        bounds_group.addLayer(layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14);
+        function pop_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1246,9 +1324,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14_0() {
+        function style_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15_0() {
             return {
-                pane: 'pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14',
+                pane: 'pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1261,20 +1339,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14');
-        map.getPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14').style.zIndex = 414;
-        map.getPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14').style['mix-blend-mode'] = 'normal';
-        var layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14 = new L.geoJson(json_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14, {
+        map.createPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15');
+        map.getPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15').style.zIndex = 415;
+        map.getPane('pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15').style['mix-blend-mode'] = 'normal';
+        var layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15 = new L.geoJson(json_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14',
-            layerName: 'layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14',
-            pane: 'pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14',
-            onEachFeature: pop_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14,
-            style: style_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14_0,
+            dataVar: 'json_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15',
+            layerName: 'layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15',
+            pane: 'pane_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15',
+            onEachFeature: pop_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15,
+            style: style_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15_0,
         });
-        bounds_group.addLayer(layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14);
-        function pop_EC109base_layers_infrastructure_road_compilation_roads_15(feature, layer) {
+        bounds_group.addLayer(layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15);
+        function pop_EC109base_layers_infrastructure_road_compilation_roads_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1350,9 +1428,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EC109base_layers_infrastructure_road_compilation_roads_15_0() {
+        function style_EC109base_layers_infrastructure_road_compilation_roads_16_0() {
             return {
-                pane: 'pane_EC109base_layers_infrastructure_road_compilation_roads_15',
+                pane: 'pane_EC109base_layers_infrastructure_road_compilation_roads_16',
                 opacity: 1,
                 color: 'rgba(164,113,88,1.0)',
                 dashArray: '',
@@ -1363,20 +1441,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EC109base_layers_infrastructure_road_compilation_roads_15');
-        map.getPane('pane_EC109base_layers_infrastructure_road_compilation_roads_15').style.zIndex = 415;
-        map.getPane('pane_EC109base_layers_infrastructure_road_compilation_roads_15').style['mix-blend-mode'] = 'normal';
-        var layer_EC109base_layers_infrastructure_road_compilation_roads_15 = new L.geoJson(json_EC109base_layers_infrastructure_road_compilation_roads_15, {
+        map.createPane('pane_EC109base_layers_infrastructure_road_compilation_roads_16');
+        map.getPane('pane_EC109base_layers_infrastructure_road_compilation_roads_16').style.zIndex = 416;
+        map.getPane('pane_EC109base_layers_infrastructure_road_compilation_roads_16').style['mix-blend-mode'] = 'normal';
+        var layer_EC109base_layers_infrastructure_road_compilation_roads_16 = new L.geoJson(json_EC109base_layers_infrastructure_road_compilation_roads_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EC109base_layers_infrastructure_road_compilation_roads_15',
-            layerName: 'layer_EC109base_layers_infrastructure_road_compilation_roads_15',
-            pane: 'pane_EC109base_layers_infrastructure_road_compilation_roads_15',
-            onEachFeature: pop_EC109base_layers_infrastructure_road_compilation_roads_15,
-            style: style_EC109base_layers_infrastructure_road_compilation_roads_15_0,
+            dataVar: 'json_EC109base_layers_infrastructure_road_compilation_roads_16',
+            layerName: 'layer_EC109base_layers_infrastructure_road_compilation_roads_16',
+            pane: 'pane_EC109base_layers_infrastructure_road_compilation_roads_16',
+            onEachFeature: pop_EC109base_layers_infrastructure_road_compilation_roads_16,
+            style: style_EC109base_layers_infrastructure_road_compilation_roads_16_0,
         });
-        bounds_group.addLayer(layer_EC109base_layers_infrastructure_road_compilation_roads_15);
-        function pop_ParcelsClickformoreinformation_16(feature, layer) {
+        bounds_group.addLayer(layer_EC109base_layers_infrastructure_road_compilation_roads_16);
+        function pop_ParcelsClickformoreinformation_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1410,11 +1488,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ParcelsClickformoreinformation_16_0(feature) {
+        function style_ParcelsClickformoreinformation_17_0(feature) {
             switch(String(feature.properties['parcel_status'])) {
                 case 'ELIGIBLE':
                     return {
-                pane: 'pane_ParcelsClickformoreinformation_16',
+                pane: 'pane_ParcelsClickformoreinformation_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1429,7 +1507,7 @@
                     break;
                 case 'EXCLUDED: EC violation':
                     return {
-                pane: 'pane_ParcelsClickformoreinformation_16',
+                pane: 'pane_ParcelsClickformoreinformation_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1444,7 +1522,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_ParcelsClickformoreinformation_16',
+                pane: 'pane_ParcelsClickformoreinformation_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1457,26 +1535,27 @@
                     break;
             }
         }
-        map.createPane('pane_ParcelsClickformoreinformation_16');
-        map.getPane('pane_ParcelsClickformoreinformation_16').style.zIndex = 416;
-        map.getPane('pane_ParcelsClickformoreinformation_16').style['mix-blend-mode'] = 'normal';
-        var layer_ParcelsClickformoreinformation_16 = new L.geoJson(json_ParcelsClickformoreinformation_16, {
+        map.createPane('pane_ParcelsClickformoreinformation_17');
+        map.getPane('pane_ParcelsClickformoreinformation_17').style.zIndex = 417;
+        map.getPane('pane_ParcelsClickformoreinformation_17').style['mix-blend-mode'] = 'normal';
+        var layer_ParcelsClickformoreinformation_17 = new L.geoJson(json_ParcelsClickformoreinformation_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ParcelsClickformoreinformation_16',
-            layerName: 'layer_ParcelsClickformoreinformation_16',
-            pane: 'pane_ParcelsClickformoreinformation_16',
-            onEachFeature: pop_ParcelsClickformoreinformation_16,
-            style: style_ParcelsClickformoreinformation_16_0,
+            dataVar: 'json_ParcelsClickformoreinformation_17',
+            layerName: 'layer_ParcelsClickformoreinformation_17',
+            pane: 'pane_ParcelsClickformoreinformation_17',
+            onEachFeature: pop_ParcelsClickformoreinformation_17,
+            style: style_ParcelsClickformoreinformation_17_0,
         });
-        bounds_group.addLayer(layer_ParcelsClickformoreinformation_16);
-        map.addLayer(layer_ParcelsClickformoreinformation_16);
+        bounds_group.addLayer(layer_ParcelsClickformoreinformation_17);
+        map.addLayer(layer_ParcelsClickformoreinformation_17);
         var overlaysTree = [
-            {label: 'Parcels (Click for more information)<br /><table><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_16_ELIGIBLE0.png" /></td><td>ELIGIBLE</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_16_EXCLUDEDECviolation1.png" /></td><td>EXCLUDED: EC violation</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_16_Lessthan2000m22.png" /></td><td>Less than 2000 m2.</td></tr></table>', layer: layer_ParcelsClickformoreinformation_16},
+            {label: 'Parcels (Click for more information)<br /><table><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_17_ELIGIBLE0.png" /></td><td>ELIGIBLE</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_17_EXCLUDEDECviolation1.png" /></td><td>EXCLUDED: EC violation</td></tr><tr><td style="text-align: center;"><img src="legend/ParcelsClickformoreinformation_17_Lessthan2000m22.png" /></td><td>Less than 2000 m2.</td></tr></table>', layer: layer_ParcelsClickformoreinformation_17},
         {label: '<b>Layer Rule Set</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/EC109base_layers_infrastructure_road_compilation_roads_15.png" /> EC109 base_layers_infrastructure_road_compilation_roads', layer: layer_EC109base_layers_infrastructure_road_compilation_roads_15},
-            {label: '<img src="legend/EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14.png" /> EC104 base_layers_national_and_regional_plans_tamam_jerusalem_land_designations', layer: layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_14},
-            {label: '<img src="legend/EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13.png" /> EC103 base_layers_national_and_regional_plans_tamam_north_land_designations', layer: layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_13},
+            {label: '<img src="legend/EC109base_layers_infrastructure_road_compilation_roads_16.png" /> EC109 base_layers_infrastructure_road_compilation_roads', layer: layer_EC109base_layers_infrastructure_road_compilation_roads_16},
+            {label: '<img src="legend/EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15.png" /> EC104 base_layers_national_and_regional_plans_tamam_jerusalem_land_designations', layer: layer_EC104base_layers_national_and_regional_plans_tamam_jerusalem_land_designations_15},
+            {label: '<img src="legend/EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14.png" /> EC103 base_layers_national_and_regional_plans_tamam_north_land_designations', layer: layer_EC103base_layers_national_and_regional_plans_tamam_north_land_designations_14},
+            {label: '<img src="legend/EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13.png" /> EC102 base_layers_national_and_regional_plans_tamam_center_land_designations', layer: layer_EC102base_layers_national_and_regional_plans_tamam_center_land_designations_13},
             {label: '<img src="legend/EC100base_layers_national_and_regional_plans_tamam_south_land_use_designations_12.png" /> EC100 base_layers_national_and_regional_plans_tamam_south_land_use_designations', layer: layer_EC100base_layers_national_and_regional_plans_tamam_south_land_use_designations_12},
             {label: '<img src="legend/EC63environmental_constraints_protected_parks_tama_1_nature_reserve_park_11.png" /> EC63 environmental_constraints_protected_parks_tama_1_nature_reserve_park', layer: layer_EC63environmental_constraints_protected_parks_tama_1_nature_reserve_park_11},
             {label: '<img src="legend/EC62environmental_constraints_protected_parks_reserves_and_parks_national_outline_plans_10.png" /> EC62 environmental_constraints_protected_parks_reserves_and_parks_national_outline_plans', layer: layer_EC62environmental_constraints_protected_parks_reserves_and_parks_national_outline_plans_10},
